@@ -1,6 +1,6 @@
 var video_out = document.getElementById("vid-box");
 
-function login(form) {
+var login = function login(form) {
 	var phone = window.phone = PHONE({
 	    number        : form.username.value || "Anonymous", // listen on username line else Anonymous
 	    publish_key   : 'pub-c-cb1f1183-8885-4291-9a74-60a784b746ac',
@@ -15,7 +15,7 @@ function login(form) {
 	return false; 	// So the form does not submit.
 }
 
-function makeCall(form){
+var makeCall = function makeCall(form){
 	if (!window.phone) alert("Login First!");
 	else phone.dial(form.number.value);
 	return false;
