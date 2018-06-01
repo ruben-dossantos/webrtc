@@ -127,6 +127,7 @@
         // Add/Get Conversation - Creates a new PC or Returns Existing PC
         // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         function get_conversation(number, isAnswer) {
+            console.log('get conversations ', conversations);
             var talk = conversations[number] || (function(number){
                 var talk = {
                     number  : number,
@@ -191,11 +192,6 @@
     
                 // Add Local Media Streams Audio Video Mic Camera
                 //  If answering and oneway streaming, do not attach stream
-                console.log('isAnswer', isAnswer);
-                console.log('!isAnswer', !isAnswer);
-                console.log('!oneway', !oneway);
-                console.log('result', (!isAnswer || !oneway));
-                console.log('mystream', mystream);
                 if (!isAnswer || !oneway) talk.pc.addStream(mystream);   // Add null here on the receiving end of streaming to go one-way.
     
                 // Notify of Call Status
@@ -275,6 +271,7 @@
         PHONE.snap = function( message, number ) {
             if (number) return get_conversation(number).snap(message);
             var pic = {};
+            console.log('snap conversations', conversations);
             PUBNUB.each( conversations, function( number, talk ) {
                 pic = talk.snap();
             } );
@@ -285,6 +282,7 @@
         // Send Message - Send Message to All Calls or a Specific Call
         // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
         PHONE.send = function( message, number ) {
+            console.log('send conversations', conversations);
             if (number) return get_conversation(number).send(message);
             PUBNUB.each( conversations, function( number, talk ) {
                 talk.send(message);
