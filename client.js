@@ -1,5 +1,5 @@
 var video_out = document.getElementById("vid-box");
-
+console.log('client init');
 function login() {
     var username = $('#username').val();
 	var phone = window.phone = PHONE({
