@@ -11,15 +11,12 @@ Ola Mundo!
 
 <div id="vid-box"></div>
 
-<form name="loginForm" id="login" action="#" onsubmit="(function() { return window.login(this);})()">
-    <input type="text" name="username" id="username" placeholder="Pick a username!" />
-    <input type="submit" name="login_submit" value="Log In">
-</form>
+<input type="text" name="username" id="username" placeholder="Pick a username!" />
+<button onclick="login(this)">Log in</button>
+<br/>
+<input type="text" name="number" id="destination" placeholder="Enter user to dial!" />
+<button onclick="makeCall(this)">Call</button>
 
-<form name="callForm" id="call" action="#" onsubmit="return window.makeCall(this);">
-	<input type="text" name="number" placeholder="Enter user to dial!" />
-	<input type="submit" value="Call"/>
-</form>
 
 </body>
 </html>
