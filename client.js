@@ -3,7 +3,8 @@ var video_out = document.getElementById("vid-box");
 function login() {
     var username = $('#username').val();
 	var phone = window.phone = PHONE({
-        number        : username || "Anonymous", // listen on username line else Anonymous
+		number        : username || "Anonymous", // listen on username line else Anonymous
+		oneway: true,
 	    publish_key   : 'pub-c-cb1f1183-8885-4291-9a74-60a784b746ac',
         subscribe_key : 'sub-c-f4c4555c-658b-11e8-967c-82814fd59ac3',
         ssl: true,
